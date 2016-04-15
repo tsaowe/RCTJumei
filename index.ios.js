@@ -28,22 +28,20 @@ var ImportantNews = React.createClass({
         alert(title);
     },
     render: function(){
-        var news = [];
-        for(var i in this.props.news){
-            var text = (
+        var news = this.props.news.map((item)=>{
+            return   (
                 <Text
-                    onPress={this.show.bind(this, this.props.news[i])}
+                    onPress={this.show.bind(this,item)}
                     numberOfLines={2}
                     style={styles.news_item}>
-          {this.props.news[i]}
+                        {item}
                 </Text>
             );
-            news.push(text);
-        }
+        });
         return (
             <View style={styles.flex}>
                 <Text style={styles.news_title}>今日要闻</Text>
-        {news}
+                {news}
             </View>
         );
     }
