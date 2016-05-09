@@ -73,7 +73,7 @@ var App = React.createClass({
                             <Text>131-8904-9077</Text>
                         </Text>
                         <Text style={styles.list}>
-                            <Text>孙悟空</Text>
+                            <Text>caowei</Text>
                             <Text>131-8904-9078</Text>
                         </Text>
                         <Text style={styles.list}>
@@ -94,7 +94,7 @@ var App = React.createClass({
                     selected={this.state.tab === 'star'}>
                     <ScrollView style={styles.flex}>
                         <Image style={{width:width, height:height}}
-                            source={{uri:'http://vczero.github.io/ctrip/star_page.jpg'}}/>
+                            source={{uri:'http://img4q.duitang.com/uploads/item/201507/15/20150715175040_KRTsy.jpeg'}}/>
                     </ScrollView>
                 </TabBarIOS.Item>
             </TabBarIOS>
