@@ -4,7 +4,7 @@ import codecs
 
 if __name__ == '__main__':
     status, output = commands.getstatusoutput("ifconfig|grep netmask|grep -v 127.0.0.1")
-    pat = re.compile(r'(?<![\.\d])(?:\d{1,3}\.){3}\d{1,3}(?![\.\d])')
+    pat = re.compile(r'(?<![\.\d])(?:\d{1,3}\.){3}\d{1,3}(?![\.\d])|localhost')
     ips = pat.findall(output)
     currentip = ips[0]
     file_object = open('ios/RCTJumei/AppDelegate.m')
