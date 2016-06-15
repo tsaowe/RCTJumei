@@ -12,47 +12,70 @@ let {
     StyleSheet
 } = ReactNative;
 
+const iconSize = 20;
+
 const styles = StyleSheet.create({
     viewStyle:{
-        flex:1,
-        height:50,
         flexDirection:'row',
-        justifyContent:'center',
-        paddingLeft:5,
-        paddingRight:5
+        borderBottomColor:'#999',
+        borderBottomWidth:1 / ReactNative.PixelRatio.get(),
+        paddingTop:5,
+        paddingBottom:5
     },
     leftIcon:{
-        width:30,
-        height:50
+
     },
     textInput:{
         flex:1,
-        borderColor:'red',
-        borderWidth:1,
-        height:30
+        height:30,
+        borderRadius:15,
+        backgroundColor:'#f5f5f5',
+        paddingLeft:40,
+        paddingTop:2,
+        fontSize:15
     }
     ,
     rightIcon:{
+
+    },
+    search:{
+        position:'absolute',
+        left:44,
+        top:10,
+        color:'#999',
         width:30,
-        height:50
+        height:30,
+        backgroundColor:'rgba(0,0,0,0)',
+        transform: [{'translate':[0,0,1]}]
+        
+    },
+    leftAndRight:{
+        width:30,
+        height:20,
+        color:'#999',
+        position:'relative',
+        left:7,
+        top:5
     }
 });
 
 
 export default React.createClass({
+
     render:function () {
         return (
             <View style={styles.viewStyle}>
-                <Icon name="ios-star" size={30} style={styles.leftIcon}/>
+                <Icon name="ios-star" size={iconSize} style={[styles.leftIcon,styles.leftAndRight]}/>
+                <Icon name="ios-search" size={20} style={styles.search}/>
                 <TextInput
                     onEndEditing={dismissKeyboard}
                     autoCapitalize="none"
                     autoCorrect={false}
                     clearButtonMode="always"
-                    placeholder="Search..."
+                    placeholder="搜索商品 分类 功效 用户"
                     testID="explorer_search"
                     style={styles.textInput}/>
-                <Icon name="ios-football" size={30} style={styles.rightIcon}/>
+                <Icon name="ios-football" size={iconSize} style={[styles.rightIcon,styles.leftAndRight]}/>
             </View>
         );
     }

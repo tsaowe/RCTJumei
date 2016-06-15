@@ -89,7 +89,7 @@ var MainTabView = React.createClass({
 var styles = StyleSheet.create({
     tabContent: {
         flex: 1,
-        marginTop:50
+        marginTop:20
     },
     tabText: {
         color: 'black',
