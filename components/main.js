@@ -4,7 +4,12 @@
 var React = require('react');
 var ReactNative = require('react-native');
 import Icon from 'react-native-vector-icons/Ionicons';
+
 import color from './common/color';
+import icons from './common/icons';
+
+import Tab1 from './tab1';
+
 var {
     StyleSheet,
     TabBarIOS,
@@ -31,47 +36,49 @@ var MainTabView = React.createClass({
                 <Icon.TabBarItem
                     onPress={this.changeTab.bind(this,0)}
                     selected={this.state.active === 0}
-                    title="首页"
-                    iconName="ios-home-outline"
-                    selectedIconName="ios-home-outline">
+                    title={icons[0].text}
+                    iconName={icons[0].icon}
+                    selectedIconName={icons[0].icon}>
 
-                    <View style={styles.tabContent}><Text>ios-home-outline</Text></View>
+                    <View style={styles.tabContent}>
+                        <Tab1/>
+                    </View>
                 </Icon.TabBarItem>
 
                 <Icon.TabBarItem
                     onPress={this.changeTab.bind(this,1)}
                     selected={this.state.active === 1}
-                    title="名品特卖"
-                    iconName="ios-archive-outline"
-                    selectedIconName="ios-archive-outline">
-                    <View style={styles.tabContent}><Text>ios-archive-outline</Text></View>
+                    title={icons[1].text}
+                    iconName={icons[1].icon}
+                    selectedIconName={icons[1].icon}>
+                    <View style={styles.tabContent}><Text>{icons[1].icon}</Text></View>
                 </Icon.TabBarItem>
 
                 <Icon.TabBarItem
                     onPress={this.changeTab.bind(this,2)}
                     selected={this.state.active === 2}
-                    title="直播社区"
-                    iconName="ios-camera-outline"
-                    selectedIconName="ios-camera-outline">
-                    <View style={styles.tabContent}><Text>ios-camera-outline</Text></View>
+                    title={icons[2].text}
+                    iconName={icons[2].icon}
+                    selectedIconName={icons[2].icon}>
+                    <View style={styles.tabContent}><Text>{icons[2].icon}</Text></View>
                 </Icon.TabBarItem>
 
                 <Icon.TabBarItem
                     onPress={this.changeTab.bind(this,3)}
                     selected={this.state.active === 3}
-                    title="购物车"
-                    iconName="md-briefcase"
-                    selectedIconName="md-briefcase">
-                    <View style={styles.tabContent}><Text>md-briefcase</Text></View>
+                    title={icons[3].text}
+                    iconName={icons[3].icon}
+                    selectedIconName={icons[3].icon}>
+                    <View style={styles.tabContent}><Text>{icons[3].icon}</Text></View>
                 </Icon.TabBarItem>
 
                 <Icon.TabBarItem
                     onPress={this.changeTab.bind(this,4)}
                     selected={this.state.active === 4}
-                    title="我的"
-                    iconName="ios-person"
-                    selectedIconName="ios-person">
-                    <View style={styles.tabContent}><Text>ios-person</Text></View>
+                    title={icons[4].text}
+                    iconName={icons[4].icon}
+                    selectedIconName={icons[4].icon}>
+                    <View style={styles.tabContent}><Text>{icons[4].icon}</Text></View>
                 </Icon.TabBarItem>
             </TabBarIOS>
         );
