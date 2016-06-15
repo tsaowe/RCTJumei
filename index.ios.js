@@ -3,6 +3,6 @@ var {
   AppRegistry
 } = React;
 
-import Welcome from './components/index';
+import App from './components/index';
 
-AppRegistry.registerComponent('RCTJumei', () => Welcome);
+AppRegistry.registerComponent('RCTJumei', () => App);
