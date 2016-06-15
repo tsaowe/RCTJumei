@@ -18,14 +18,16 @@ const mapStateToProps = state => ({
     app: state
 });
 const mapDispatchToProps = (dispatch) => ({
-    countDown:dispatch(actions.countDown())
+    countDown:()=>{
+        dispatch(actions.countDown())
+    }
 });
 const WelcomeContainer = connect(mapStateToProps,mapDispatchToProps)(Welcome);
 export default React.createClass({
     render:function () {
         return (
             <Provider store={store}>
-                <WelcomeContainer />
+                <WelcomeContainer countDown={this.props.countDown}/>
             </Provider>
         )
     }
