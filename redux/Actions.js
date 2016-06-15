@@ -17,20 +17,15 @@ export const countDownTime = () => {
     }
 };
 
-export const saveTimer = (timer) => {
-    return {
-        type: actions.SAVE_TIMER,
-        timer
-    }
-};
 
 export const countDown = () => {
     return function(dispatch) {
-        let timer = setInterval(() => {
-            dispatch(countDownTime())
-        }, 1000);
-        //把timer存入state
-        dispatch(saveTimer(timer));
+        
+        setTimeout(()=> {
+            clearInterval(setInterval(() => {
+                dispatch(countDownTime())
+            }, 1000));
+        }, 5000);
         
     }
 };

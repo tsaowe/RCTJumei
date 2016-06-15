@@ -10,25 +10,19 @@ import thunk from 'redux-thunk';
 import reducer from '../redux/IndexReducer';
 import * as actions from '../redux/Actions';
 
-import Welcome from './welcome';
+import AppContainer from './AppContainer';
 
 const store = createStore(reducer,compose(applyMiddleware(thunk), f=>f));
 store.dispatch(actions.init());
-const mapStateToProps = state => ({
-    app: state
-});
-const mapDispatchToProps = (dispatch) => ({
-    countDown:()=>{
-        dispatch(actions.countDown())
-    }
-});
-const WelcomeContainer = connect(mapStateToProps,mapDispatchToProps)(Welcome);
+
+
 export default React.createClass({
     render:function () {
+        let props = this.props;
         return (
             <Provider store={store}>
-                <WelcomeContainer countDown={this.props.countDown}/>
+                <AppContainer countDown={props.countDown}/>
             </Provider>
-        )
+        );
     }
 })

@@ -19,10 +19,6 @@ export default (state = {
             return Object.assign({}, state, {
                 time: -- current
             });
-        case actions.SAVE_TIMER:
-            return Object.assign({}, state, {
-                timer: action.timer
-            }); 
     }
 };
 
