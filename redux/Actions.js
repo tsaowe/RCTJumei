@@ -20,12 +20,15 @@ export const countDownTime = () => {
 
 export const countDown = () => {
     return function(dispatch) {
-        
-        setTimeout(()=> {
-            clearInterval(setInterval(() => {
-                dispatch(countDownTime())
-            }, 1000));
-        }, 5000);
-        
+
+        let timer = setInterval(() => {
+            dispatch(countDownTime())
+        }, 1000);
+
+        setTimeout(()=>{
+            clearInterval(timer);
+        },5000);
+
+
     }
 };
