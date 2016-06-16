@@ -84,7 +84,11 @@ export default React.createClass({
                     <View style={styles.viewCharacter}><Text style={styles.textCharacter}>星</Text></View>
                 </View>
             )    
-        } else {
+        } else if(rowID == 2){
+            return (
+                <View style={{height:10,flex:1,backgroundColor:'#f5f5f5'}}/>
+            )
+        }else {
             return (
                 <TouchableHighlight>
                     <View>
@@ -141,6 +145,7 @@ export default React.createClass({
                 <ListView
                     scrollEventThrottle={2}
                     ref="listView"
+                    scrollsToTop={true}
                     dataSource={this.state.dataSource}
                     renderRow={this._renderRow}
                     onScroll={this.handleScroll}
