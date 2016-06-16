@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 let {height, width} = Dimensions.get('window');
 
 import size from '../../common/size';
+import color from '../../common/color';
 
 import ImageSlider from '../../common/imageSlider';
 
@@ -36,6 +37,23 @@ const styles = StyleSheet.create({
         position:'relative',
         left:7,
         top:3
+    },
+    viewCharacter:{
+        width:width / 8,
+        height:width / 8,
+        borderRadius: width / 16,
+        backgroundColor:color.JMRed,
+        marginTop:10,
+        marginBottom:10
+        
+    },
+    textCharacter:{
+        color:'#fff',
+        backgroundColor:'rgba(0,0,0,0)',
+        position:'relative',
+        top:7,
+        left:8,
+        fontSize:25
     }
 });
 
@@ -57,6 +75,15 @@ export default React.createClass({
                 'http://mp1.jmstatic.com/c_zoom,w_640,q_70/mobile/card_material/item_55577_1520_622-ipad2048_1465898474.jpg?t=1465898474',
                 'http://mp1.jmstatic.com/c_zoom,w_640,q_70/mobile/card_material/item_55326_1520_622-ipad2048_1465813054.jpg?t=1465813054'
             ]}/>);
+        } else if(rowID == 1){
+            return (
+                <View style={{flex:1,flexDirection:'row',justifyContent:'space-around'}}>
+                    <View style={styles.viewCharacter}><Text style={styles.textCharacter}>约</Text></View>
+                    <View style={styles.viewCharacter}><Text style={styles.textCharacter}>会</Text></View>
+                    <View style={styles.viewCharacter}><Text style={styles.textCharacter}>明</Text></View>
+                    <View style={styles.viewCharacter}><Text style={styles.textCharacter}>星</Text></View>
+                </View>
+            )    
         } else {
             return (
                 <TouchableHighlight>
