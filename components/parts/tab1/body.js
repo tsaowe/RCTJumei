@@ -10,6 +10,8 @@ let {height, width} = Dimensions.get('window');
 
 import size from '../../common/size';
 
+import ImageSlider from '../../common/imageSlider';
+
 const styles = StyleSheet.create({
     iconView:{
         height:40,
@@ -47,20 +49,29 @@ const hashCode = function(str) {
 const LOREM_IPSUM = 'Lorem ipsum dolor sit amet, ius ad pertinax oportere accommodare, an vix civibus corrumpit referrentur. Te nam case ludus inciderint, te mea facilisi adipiscing. Sea id integre luptatum. In tota sale consequuntur nec. Erat ocurreret mei ei. Eu paulo sapientem vulputate est, vel an accusam intellegam interesset. Nam eu stet pericula reprimique, ea vim illud modus, putant invidunt reprehendunt ne qui.';
 
 export default React.createClass({
-    _renderRow: function(rowData, sectionID, rowID, highlightRow) {
-    var rowHash = Math.abs(hashCode(rowData));
-    return (
-        <TouchableHighlight>
-            <View>
-                <View style={styles.row}>
-                    <Text >
-                        {rowData + ' - ' + LOREM_IPSUM.substr(0, rowHash % 301 + 10)}
-                    </Text>
-                </View>
-            </View>
-        </TouchableHighlight>
-    );
-},
+    _renderRow: function (rowData, sectionID, rowID, highlightRow) {
+        var rowHash = Math.abs(hashCode(rowData));
+        if (rowID == 0) {
+            return (<ImageSlider images={[
+                'http://mp1.jmstatic.com/c_zoom,w_640,q_70/mobile/card_material/item_55324_1520_622-ipad2048_1465803130.jpg?t=1465803130',
+                'http://mp1.jmstatic.com/c_zoom,w_640,q_70/mobile/card_material/item_55577_1520_622-ipad2048_1465898474.jpg?t=1465898474',
+                'http://mp1.jmstatic.com/c_zoom,w_640,q_70/mobile/card_material/item_55326_1520_622-ipad2048_1465813054.jpg?t=1465813054'
+            ]}/>);
+        } else {
+            return (
+                <TouchableHighlight>
+                    <View>
+                        <View style={styles.row}>
+                            <Text >
+                                {rowData + ' - ' + rowID + LOREM_IPSUM.substr(0, rowHash % 301 + 10)}
+                            </Text>
+                        </View>
+                    </View>
+                </TouchableHighlight>
+            );
+        }
+
+    },
 
     _genRows: function(pressData){
         var dataBlob = [];
