@@ -18,10 +18,12 @@ const styles = StyleSheet.create({
         position:'absolute',
         bottom:40,
         right:30,
-        borderRadius:20
+        borderRadius:20,
+        borderWidth:3,
+        borderColor:'#888'
     },
     iconViewTouched:{
-        opacity:.7    
+        opacity:.6    
     }
     ,
     text:{
@@ -30,8 +32,8 @@ const styles = StyleSheet.create({
     up:{
         backgroundColor:'rgba(0,0,0,0)',
         position:'relative',
-        left:10,
-        top:5
+        left:7,
+        top:3
     }
 });
 
@@ -108,7 +110,7 @@ export default React.createClass({
                 />
 
                 {
-                    this.state.top > 200 ?
+                    this.state.top > 10 ?
                     (
                     <TouchableOpacity
                         onPress={this.scrollTop}
