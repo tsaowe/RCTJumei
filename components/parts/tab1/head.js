@@ -5,6 +5,9 @@ var React = require('react');
 var ReactNative = require('react-native');
 import Icon from 'react-native-vector-icons/Ionicons';
 import dismissKeyboard from 'react-native-dismiss-keyboard';
+
+import size from '../../common/size';
+
 let {
     View,
     Text,
@@ -14,20 +17,22 @@ let {
 
 const iconSize = 20;
 
+const verticalHeight = size.header;
+
 const styles = StyleSheet.create({
     viewStyle:{
         flexDirection:'row',
         borderBottomColor:'#999',
         borderBottomWidth:1 / ReactNative.PixelRatio.get(),
-        paddingTop:5,
-        paddingBottom:5
+        paddingTop:verticalHeight.marginTop,
+        paddingBottom:verticalHeight.marginTop
     },
     leftIcon:{
 
     },
     textInput:{
         flex:1,
-        height:30,
+        height:verticalHeight.textHeight,
         borderRadius:15,
         backgroundColor:'#f5f5f5',
         paddingLeft:40,
@@ -44,7 +49,7 @@ const styles = StyleSheet.create({
         top:10,
         color:'#999',
         width:30,
-        height:30,
+        height:verticalHeight.textHeight,
         backgroundColor:'rgba(0,0,0,0)',
         transform: [{'translate':[0,0,1]}]
         

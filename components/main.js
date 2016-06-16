@@ -8,6 +8,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import color from './common/color';
 import icons from './common/icons';
 
+import size from './common/size';
+
 import Tab1 from './tab1';
 
 var {
@@ -67,6 +69,7 @@ var MainTabView = React.createClass({
                     onPress={this.changeTab.bind(this,3)}
                     selected={this.state.active === 3}
                     title={icons[3].text}
+                    badge="4"
                     iconName={icons[3].icon}
                     selectedIconName={icons[3].icon}>
                     <View style={styles.tabContent}><Text>{icons[3].icon}</Text></View>
@@ -89,11 +92,7 @@ var MainTabView = React.createClass({
 var styles = StyleSheet.create({
     tabContent: {
         flex: 1,
-        marginTop:20
-    },
-    tabText: {
-        color: 'black',
-        margin: 50
+        marginTop:size.statusHeight
     }
 });
 

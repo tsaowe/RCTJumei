@@ -6,13 +6,17 @@ var ReactNative = require('react-native');
 let {ScrollView, Text, StyleSheet, View, TouchableOpacity,TouchableHighlight, Alert,Dimensions,ListView} = ReactNative;
 import Icon from 'react-native-vector-icons/Ionicons';
 
+let {height, width} = Dimensions.get('window');
+
+import size from '../../common/size';
+
 const styles = StyleSheet.create({
     iconView:{
         height:40,
         width:40,
         backgroundColor:'#999',
         position:'absolute',
-        bottom:100,
+        bottom:40,
         right:30,
         borderRadius:20
     },
@@ -82,15 +86,16 @@ export default React.createClass({
         return (
             <View>
                 <ListView
+                    scrollEventThrottle={2}
                     ref="listView"
                     dataSource={this.state.dataSource}
                     renderRow={this._renderRow}
                     onScroll={this.handleScroll}
-                    style={{height:500}}
+                    style={{height:size.scrollViewHeight}}
                 />
 
                 {
-                    this.state.top > 5 ?
+                    this.state.top > 200 ?
                     (
                     <TouchableOpacity
                         onPress={this.scrollTop}

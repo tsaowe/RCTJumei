@@ -9,8 +9,11 @@ import list from './navigatorData';
 
 
 import colors from '../../common/color';
+import size from '../../common/size';
 
 let {height, width} = Dimensions.get('window');
+
+
 
 
 const generateX = (windowWidth,widths,Xs,index)=>{
@@ -31,7 +34,7 @@ const generateX = (windowWidth,widths,Xs,index)=>{
 
 const styles = StyleSheet.create({
     scrollView: {
-        height: 30,
+        height: size.navigatorHeight,
         backgroundColor: '#f9f9f9',
         paddingTop: 7
     },
