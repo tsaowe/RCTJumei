@@ -3,7 +3,7 @@
  */
 var React = require('react');
 var ReactNative = require('react-native');
-let {ScrollView, Text, StyleSheet, View, TouchableOpacity,TouchableHighlight, Alert,Dimensions,ListView} = ReactNative;
+let {ScrollView, Text, StyleSheet, View, TouchableOpacity,TouchableHighlight, Alert,Dimensions,ListView,Image} = ReactNative;
 import Icon from 'react-native-vector-icons/Ionicons';
 
 let {height, width} = Dimensions.get('window');
@@ -54,6 +54,11 @@ const styles = StyleSheet.create({
         top:7,
         left:8,
         fontSize:25
+    },
+    image : {
+        flex:1,
+        height:175,
+        resizeMode:'contain'
     }
 });
 
@@ -88,6 +93,31 @@ export default React.createClass({
             return (
                 <View style={{height:10,flex:1,backgroundColor:'#f5f5f5'}}/>
             )
+        }else if(rowID > 2 && rowID <10){
+            var images = [
+                "http://mp1.jmstatic.com/c_zoom,w_640,q_70/mobile/card_material/item_55413_2048_1024-ipad2048_1465824667.jpg?t=1465824668",
+                "http://mp1.jmstatic.com/c_zoom,w_640,q_70/mobile/card_material/item_55414_2048_1024-ipad2048_1465824715.jpg?t=1465824715",
+                "http://mp1.jmstatic.com/c_zoom,w_640,q_70/mobile/card_material/item_55439_2048_1024-ipad2048_1465877572.jpg?t=1465877572",
+                "http://mp1.jmstatic.com/c_zoom,w_640,q_70/mobile/card_material/item_55447_2048_1024-ipad2048_1465885331.jpg?t=1465885331",
+                "http://mp1.jmstatic.com/c_zoom,w_640,q_70/mobile/card_material/item_55446_2048_1024-ipad2048_1465885258.jpg?t=1465885258",
+                "http://mp1.jmstatic.com/c_zoom,w_640,q_70/mobile/card_material/item_55412_2048_1024-ipad2048_1465824608.jpg?t=1465824608",
+                "http://mp1.jmstatic.com/c_zoom,w_640,q_70/mobile/card_material/item_42284_2048_512-ipad2048_1458644228.jpg?t=1458644228"
+            ];
+
+            let index = rowID - 3;
+            let img = images[index];
+
+            return (
+                <TouchableOpacity>
+                    <Image
+                        style={styles.image}
+                        source={{uri: img}}
+                    />
+                </TouchableOpacity>
+            )
+
+
+
         }else {
             return (
                 <TouchableHighlight>
