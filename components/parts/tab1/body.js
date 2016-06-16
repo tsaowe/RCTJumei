@@ -77,7 +77,7 @@ export default React.createClass({
             ]}/>);
         } else if(rowID == 1){
             return (
-                <View style={{flex:1,flexDirection:'row',justifyContent:'space-around'}}>
+                <View style={{flex:1,flexDirection:'row',justifyContent:'space-around',shadowColor:'#000',shadowOffset:{width:0,height:0},shadowRadius:1,shadowOpacity:.3,transform: [{'translate':[0,0,1]}]}}>
                     <View style={styles.viewCharacter}><Text style={styles.textCharacter}>约</Text></View>
                     <View style={styles.viewCharacter}><Text style={styles.textCharacter}>会</Text></View>
                     <View style={styles.viewCharacter}><Text style={styles.textCharacter}>明</Text></View>
