@@ -20,6 +20,10 @@ const styles = StyleSheet.create({
         right:30,
         borderRadius:20
     },
+    iconViewTouched:{
+        opacity:.7    
+    }
+    ,
     text:{
         
     },
@@ -68,7 +72,8 @@ export default React.createClass({
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         return {
             dataSource: ds.cloneWithRows(this._genRows({})),
-            top:0
+            top:0,
+            touched:false
         };
     },
     scrollTop:function () {
@@ -76,6 +81,14 @@ export default React.createClass({
             y:0,
             animated:true
         });
+        this.setState({
+            touched:true
+        });
+        setTimeout(function () {
+            this.setState({
+                touched:false
+            });
+        }.bind(this),1000);
     },
     handleScroll:function (event) {
         this.setState(function (state) {
@@ -99,7 +112,8 @@ export default React.createClass({
                     (
                     <TouchableOpacity
                         onPress={this.scrollTop}
-                        style={styles.iconView}>
+                        activeOpacity={.7}
+                        style={[styles.iconView,this.state.touched ? styles.iconViewTouched : {}]}>
                             <Icon
                             name='md-arrow-up'
                             size={30}
