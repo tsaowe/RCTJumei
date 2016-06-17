@@ -3,8 +3,10 @@
  */
 var React = require('react');
 var ReactNative = require('react-native');
-let {ScrollView, Text, StyleSheet, View, TouchableOpacity,TouchableHighlight, Alert,Dimensions,ListView,Image} = ReactNative;
+let {ScrollView, Text, StyleSheet, View, TouchableOpacity,TouchableHighlight, Alert,Dimensions,ListView,Image,PanResponder} = ReactNative;
 import Icon from 'react-native-vector-icons/Ionicons';
+
+import dismissKeyboard from 'react-native-dismiss-keyboard';
 
 let {height, width} = Dimensions.get('window');
 
@@ -169,9 +171,13 @@ export default React.createClass({
             state.top = event.nativeEvent.contentOffset.y;
         });
     },
+    _panResponder:function () {
+        return {};
+    }
+    ,
     render:function () {
         return (
-            <View>
+            <View onResponderMove={dismissKeyboard}>
                 <ListView
                     scrollEventThrottle={2}
                     ref="listView"

@@ -11,12 +11,16 @@ import icons from './common/icons';
 import size from './common/size';
 
 import Tab1 from './tab1';
+import Tab2 from './tab2';
+import Tab3 from './tab3';
 
 var {
     StyleSheet,
     TabBarIOS,
+    TabBar,
     Text,
     View,
+    StatusBar
 } = ReactNative;
 
 
@@ -53,7 +57,7 @@ var MainTabView = React.createClass({
                     title={icons[1].text}
                     iconName={icons[1].icon}
                     selectedIconName={icons[1].icon}>
-                    <View style={styles.tabContent}><Text>{icons[1].icon}</Text></View>
+                    <Tab2/>
                 </Icon.TabBarItem>
 
                 <Icon.TabBarItem
@@ -62,7 +66,7 @@ var MainTabView = React.createClass({
                     title={icons[2].text}
                     iconName={icons[2].icon}
                     selectedIconName={icons[2].icon}>
-                    <View style={styles.tabContent}><Text>{icons[2].icon}</Text></View>
+                        <Tab3 />
                 </Icon.TabBarItem>
 
                 <Icon.TabBarItem
