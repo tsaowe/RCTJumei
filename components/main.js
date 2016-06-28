@@ -13,7 +13,7 @@ import size from './common/size';
 import Tab1 from './tab1';
 import Tab2 from './tab2';
 import Tab3 from './tab3';
-
+import Tab4 from './tab4';
 var {
     StyleSheet,
     TabBarIOS,
@@ -76,7 +76,7 @@ var MainTabView = React.createClass({
                     badge="4"
                     iconName={icons[3].icon}
                     selectedIconName={icons[3].icon}>
-                    <View style={styles.tabContent}><Text>{icons[3].icon}</Text></View>
+                    <Tab4/>
                 </Icon.TabBarItem>
 
                 <Icon.TabBarItem
